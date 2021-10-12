@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Practice from "./components/Practice";
 
 // Hooks always called at the top level of the function
 
@@ -25,6 +26,7 @@ function App() {
       {items.map((item) => {
         return <pre>{JSON.stringify(items)}</pre>;
       })}
+      <Practice />
     </>
   );
 }
