@@ -1,11 +1,19 @@
 import React, { useState, useEffect } from "react";
 import Practice from "./components/Practice";
+import Context from "./components/Context";
+
+export const ThemeContext = React.createContext()
 
 // Hooks always called at the top level of the function
 
 function App() {
   const [count, setCount] = useState(4);
   const [items, setItems] = useState([]);
+  const [darkTheme, setDarkTheme] = useState(true)
+
+  function toggleTheme() {
+    setDarkTheme(prevDarkTheme => !prevDarkTheme)
+  }
   useEffect(() => {
     fetch("https://jsonplaceholder.typicode.com/users")
       .then((response) => response.json())
@@ -26,7 +34,11 @@ function App() {
       {items.map((item) => {
         return <pre>{JSON.stringify(items)}</pre>;
       })}
+      <ThemeContext.Provider value={darkTheme}>
+        <button onClick={toggleTheme}>Toggle Theme</button>
+      <Context />
       <Practice />
+      </ThemeContext.Provider>
     </>
   );
 }

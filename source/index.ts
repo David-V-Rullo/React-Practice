@@ -110,4 +110,5 @@ console.log(ted.register())
 function getArray<T>(items: T[]): T[]{
     return new Array().concat(items)
 }
-
+// Creating a react project with typeScript
+// npx create-react-app . --template typescript
