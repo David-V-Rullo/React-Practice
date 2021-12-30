@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Practice from "./components/Practice";
 import Context from "./components/Context";
-
+import { userSchema } from "./Validations/userValidation";
+import * as yup from yup
 export const ThemeContext = React.createContext()
 
 // Hooks always called at the top level of the function
@@ -25,6 +26,16 @@ function App() {
 
   function increment() {
     setCount((prevCount) => prevCount + 1);
+  }
+
+  const createUser = (event) => {
+    event.preventDefault()
+    let formData = {
+      name: event.target(0).value,
+      email:event.target(1).value,
+      password:event.target(2).value
+    };
+    const isValid = await userSchema.isValid(formData)
   }
   return (
     <>
