@@ -28,6 +28,14 @@ function App() {
   }
   return (
     <>
+    <div>
+      <form>
+        <input type="text" placeholder="Name.."/>
+        <input type="text" placeholder="Email"/>
+        <input type="text" placeholder="Password"/>
+        <input type="SUBMIT" />
+      </form>
+    </div>
       <button onClick={increment}>+</button>
       <span>{count}</span>
       <button onClick={decrementCount}>-</button>
